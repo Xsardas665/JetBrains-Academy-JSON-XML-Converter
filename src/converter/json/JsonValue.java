@@ -1,4 +1,11 @@
 package converter.json;
 
-public abstract class JsonValue {
+import converter.Pretty;
+
+public abstract class JsonValue implements Pretty {
+    @Override
+    public String toPretty() {
+        return toString();
+    }
+
 }

@@ -1,18 +1,18 @@
-package converter.x;
+package converter.xml;
 
 import java.util.List;
 
-public class XElements extends XComplexValue {
-    protected final List<XElement> values;
+public class XmlElements extends XmlComplexValue {
+    protected final List<XmlElement> values;
 
-    public XElements(List<XElement> values) {
+    public XmlElements(List<XmlElement> values) {
         this.values = values;
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        for (XElement value : values) {
+        for (XmlElement value : values) {
             builder.append(value);
         }
         return builder.toString();

@@ -4,4 +4,4 @@
 - [X] Stage 3
 - [X] Stage 4
 - [X] Stage 5
-- [ ] Stage 6
+- [X] Stage 6

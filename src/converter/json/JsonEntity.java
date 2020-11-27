@@ -1,20 +1,10 @@
 package converter.json;
 
-public class JsonEntity {
-    public final String name;
-    public final JsonValue value;
+import converter.Pretty;
 
-    public JsonEntity(String name) {
-        this(name, new JsonSimpleValue());
-    }
-
-    public JsonEntity(String name, String value) {
-        this(name, new JsonSimpleValue(value));
-    }
-
-    public JsonEntity(String name, JsonElement value) {
-        this(name, new JsonElementValue(value));
-    }
+public class JsonEntity implements Pretty {
+    protected final String name;
+    protected final JsonValue value;
 
     public JsonEntity(String name, JsonValue value) {
         this.name = name;
@@ -22,7 +12,17 @@ public class JsonEntity {
     }
 
     @Override
+    public String toPretty() {
+        return String.format("\"%s\": %s", name, value.toPretty());
+    }
+
+    @Override
+    public String toPretty(int level) {
+        return String.format("\"%s\": %s", name, value.toPretty(level));
+    }
+
+    @Override
     public String toString() {
-        return String.format("\"%s\":%s", name, value.toString());
+        return String.format("\"%s\": %s", name, value);
     }
 }

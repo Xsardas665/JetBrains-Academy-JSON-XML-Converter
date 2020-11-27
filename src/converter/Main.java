@@ -1,11 +1,11 @@
 package converter;
 
-import converter.js.JsConverter;
-import converter.js.JsObject;
-import converter.js.JsParser;
-import converter.x.XConverter;
-import converter.x.XElement;
-import converter.x.XParser;
+import converter.json.Json2XmlConverter;
+import converter.json.JsonObject;
+import converter.json.JsonParser;
+import converter.xml.Xml2JsonConverter;
+import converter.xml.XmlElement;
+import converter.xml.XmlParser;
 
 import java.io.File;
 import java.io.FileReader;
@@ -15,16 +15,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
         final String input = getInputFromFile();
         if (isJson(input)) {
-            final JsParser parser = new JsParser();
-            final JsObject json = parser.parse(input);
-            final JsConverter converter = new JsConverter();
-            final XElement xml = converter.convert(json);
+            final Parser<JsonObject> parser = new JsonParser();
+            final JsonObject json = parser.parse(input);
+            final Converter<JsonObject, XmlElement> converter = new Json2XmlConverter();
+            final XmlElement xml = converter.convert(json);
             System.out.println(xml);
         } else if (isXml(input)) {
-            final XParser parser = new XParser();
-            final XElement xml = parser.parse(input);
-            final XConverter converter = new XConverter();
-            final JsObject json = converter.convert(xml);
+            final Parser<XmlElement> parser = new XmlParser();
+            final XmlElement xml = parser.parse(input);
+            final Converter<XmlElement, JsonObject> converter = new Xml2JsonConverter();
+            final JsonObject json = converter.convert(xml);
             System.out.println(json.toPretty());
         } else {
             throw new IllegalArgumentException("Unknown input type: " + input);

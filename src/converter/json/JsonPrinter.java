@@ -1,15 +1,15 @@
-package converter.js;
+package converter.json;
 
 import java.io.PrintStream;
 
-public class JsPrinter {
+public class JsonPrinter {
     protected final PrintStream printer;
 
-    public JsPrinter() {
+    public JsonPrinter() {
         this.printer = System.out;
     }
 
-    public void print(JsObject object) {
+    public void print(JsonObject object) {
 
     }
 }

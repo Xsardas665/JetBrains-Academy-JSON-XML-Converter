@@ -1,9 +1,9 @@
-package converter.js;
+package converter.json;
 
-public class JsString extends JsValue {
+public class JsonString extends JsonPrimitive {
     protected final String value;
 
-    public JsString(String value) {
+    public JsonString(String value) {
         this.value = value;
     }
 

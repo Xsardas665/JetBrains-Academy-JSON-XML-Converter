@@ -1,7 +1,7 @@
 package converter.xml;
 
 public class XmlSimpleValue extends XmlValue {
-    private final String value;
+    protected final String value;
 
     public XmlSimpleValue() {
         this("");
