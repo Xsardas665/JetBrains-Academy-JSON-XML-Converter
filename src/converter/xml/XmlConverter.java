@@ -1,6 +1,10 @@
 package converter.xml;
 
 import converter.json.JsonElement;
+import converter.json.JsonEntity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class XmlConverter {
     public JsonElement convertToJson(XmlElement element) {

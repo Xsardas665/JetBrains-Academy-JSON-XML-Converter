@@ -1,5 +1,7 @@
 package converter.xml;
 
+import converter.json.JsonValue;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
